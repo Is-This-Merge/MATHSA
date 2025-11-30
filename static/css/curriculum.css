@@ -1,0 +1,105 @@
+@import url(./common.css);
+
+.filter{
+    display: inline-block;
+    gap: 10px;
+    margin: 15px;
+}
+.filter select, .filter input{
+    padding: 10px;
+    border-radius: 9px;
+    border: 2px solid #ccc;
+    color: var(--primary);
+    font-weight: bolder;
+}
+
+.content-wrapper {
+    display: flex;
+    gap: 20px;
+}
+.content-wrapper .filter, .content-wrapper #curriculum {
+    width: 100%;
+}
+.content-wrapper table th, .content-wrapper table td {
+    border: 1px solid #ddd;
+    padding: 6px;
+}
+
+.course{
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 10px;
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+.course:hover{
+    background: #eef2ff;
+}
+
+.badge{
+    background: #eef2ff;
+    color: #013B84;
+    padding: 3px 8px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+}
+.badge2{
+    background: #eef2ff;
+    color: #23BAEF;
+    padding: 3px 8px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+}
+
+.noAnswer{
+    color:gray; 
+    display:flex; 
+    justify-content:center; 
+    align-items:center;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+    gap: 10px;
+    width: 100%;
+    margin: 0 auto 60px;
+    justify-items: center;
+}
+
+.card {
+    background-color: var(--card);
+    border-radius: 16px;
+    padding: 20px;
+    width: 200px;
+    height: 200px;
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    text-decoration: none;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.12);
+}
+
+.card h3 {
+    margin: 8px 0;
+    color: var(--text);
+    font-size: 18px;
+}
+.card p {
+    font-size: 14px;
+    color: var(--subtext);
+    margin: 0;
+}

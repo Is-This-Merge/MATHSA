@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>교육과정</title>
+  <link rel="icon" href="../static/image/icon.png">
+  <link rel="stylesheet" href="../static/css/curriculum.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+        <div>
+          <h1><a href="/" class="logo">수학SA</a></h1>
+          <p id="Title" class="lead"></p>
+        </div>
+    </header>
+
+    <main>
+      <div>
+        <div class="filter">
+          <input type="search" id="searchInput" placeholder="과목명 검색">
+          <select id="semesterFilter">
+            <option value="all">학기</option>
+            <option value=0>1학년 1학기</option>
+            <option value=1>1학년 2학기</option>
+            <option value=2>2학년 1학기</option>
+            <option value=3>2학년 2학기</option>
+            <option value=4>3학년 1학기</option>
+            <option value=5>3학년 2학기</option>
+          </select>
+          <select id="creditFilter">
+            <option value="all">학점</option>
+            <option value=2>2학점</option>
+            <option value=3>3학점</option>
+          </select>
+          <select id="frequencyFilter">
+            <option value="all">시수</option>
+            <option value=2>2시수</option>
+            <option value=3>3시수</option>
+            <option value=4>4시수</option>
+          </select>
+          <select id="necessaryFilter">
+            <option value="all">구분</option>
+            <option value="필수">필수</option>
+            <option value="기본선택">기본선택</option>
+            <option value="자율선택">자율선택</option>
+          </select>
+          <select id="APFilter">
+            <option value="all">AP유무</option>
+            <option value=0>X</option>
+            <option value=1>O</option>
+          </select>
+        </div>
+        <div id="card-container" class="card-container">
+        </div>
+      </div>
+    </main>
+  </div>
+  
+
+  <script src="../static/js/curriculum.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const curriculumCl = parseInt(params.get('cl'), 10);
+    const curriculum = curriculums.find(c => c.cl.includes(curriculumCl));
+    
+    document.title = `${curriculumCl}기 교육과정`
+
+    if (curriculum) {
+      document.getElementById('Title').innerHTML = `SASA ${curriculumCl}기 수학 교육과정`;      
+    }
+
+    const CardContainer = document.getElementById('card-container');
+    const searchInput = document.getElementById('searchInput');
+    const semesterFilter = document.getElementById('semesterFilter');
+    const creditFilter = document.getElementById('creditFilter');
+    const frequencyFilter = document.getElementById('frequencyFilter');
+    const necessaryFilter = document.getElementById('necessaryFilter');
+    const APFilter = document.getElementById('APFilter');    
+
+    function render(list){
+      CardContainer.innerHTML = '';
+      if(!list.length){
+        CardContainer.innerHTML = '<div class="noAnswer">검색 결과가 없습니다.</div>'
+        return;
+      }
+
+      list.forEach(c => {
+        const semestertext = c.semester
+        .map(s => {
+          const grade = Math.floor((s-1)/2)+1;
+          const semester = ((s-1)%2)+1;
+          return `${grade}학년 ${semester}학기`;
+        })
+        .join(', ');
+
+        const apLabel = c.AP === 1 ? 'AP' : '';
+
+        const item = document.createElement('div');
+        item.innerHTML = `
+          <a href="/subject?cl=${curriculumCl}&id=${c.id}" class="card">
+            <h2>${c.name}</h2>
+            <div>${semestertext}</div>
+            <div>${c.credits}학점</div>
+            <div>${c.frequency}시수</div>
+            <div>${c.necessary}</div>
+            <div>${apLabel}</div>
+          </a>
+        `;
+        CardContainer.appendChild(item);
+      })
+    }
+
+    function filterAndRender(){
+      const sI = searchInput.value.trim().toLowerCase();
+      const sF = semesterFilter.value;
+      const cF = creditFilter.value;
+      const fF = frequencyFilter.value;
+      const nF = necessaryFilter.value;
+      const aF = APFilter.value;
+      const filtered = curriculum.subjects.filter(c => {
+        if(sF !== 'all' && !c.semester.includes(Number(sF))) return false;
+        if(cF !== 'all' && Number(cF) !== c.credits) return false;
+        if(fF !== 'all' && Number(fF) !== c.frequency) return false;
+        if(nF !== 'all' && Number(nF) !== c.necessary) return false;
+        if(aF !== 'all' && Number(aF) !== c.AP) return false;
+        if(!sI) return true;
+        return c.name.toLowerCase().includes(sI);
+      });
+      render(filtered);
+    }
+
+    searchInput.addEventListener('input', filterAndRender);
+    semesterFilter.addEventListener('change', filterAndRender);
+    creditFilter.addEventListener('change', filterAndRender);
+    frequencyFilter.addEventListener('change', filterAndRender);
+    necessaryFilter.addEventListener('change', filterAndRender);
+    APFilter.addEventListener('change', filterAndRender);
+
+    filterAndRender();
+  </script>
+</body>
+</html>
