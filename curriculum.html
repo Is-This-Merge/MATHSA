@@ -4,14 +4,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>교육과정</title>
-  <link rel="icon" href="../static/image/icon.png">
-  <link rel="stylesheet" href="../static/css/curriculum.css">
+  <link rel="icon" href="static/image/icon.png">
+  <link rel="stylesheet" href="static/css/curriculum.css">
 </head>
 <body>
   <div class="container">
     <header>
         <div>
-          <h1><a href="/" class="logo">수학SA</a></h1>
+          <h1><a href="./index.html" class="logo">수학SA</a></h1>
           <p id="Title" class="lead"></p>
         </div>
     </header>
@@ -59,7 +59,7 @@
   </div>
   
 
-  <script src="../static/js/curriculum.js"></script>
+  <script src="static/js/curriculum.js"></script>
   <script>
     const params = new URLSearchParams(window.location.search);
     const curriculumCl = parseInt(params.get('cl'), 10);
@@ -99,7 +99,7 @@
 
         const item = document.createElement('div');
         item.innerHTML = `
-          <a href="/subject?cl=${curriculumCl}&id=${c.id}" class="card">
+          <a href="./subject.html?cl=${curriculumCl}&id=${c.id}" class="card">
             <h2>${c.name}</h2>
             <div>${semestertext}</div>
             <div>${c.credits}학점</div>
