@@ -4,12 +4,10 @@ const THEME_KEY = 'site-theme';
 function applyTheme(theme) {
   if (theme === 'dark') {
     document.documentElement.setAttribute('data-theme', 'dark');
-    dtoggleBtn.textContent = '☀️';
     dtoggleBtn.setAttribute('aria-pressed', 'true');
     dtoggleBtn.title = '라이트 모드로 전환';
   } else {
     document.documentElement.removeAttribute('data-theme');
-    dtoggleBtn.textContent = '🌙';
     dtoggleBtn.setAttribute('aria-pressed', 'false');
     dtoggleBtn.title = '다크 모드로 전환';
   }
