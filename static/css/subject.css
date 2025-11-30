@@ -23,15 +23,15 @@ table{
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
-    background-color: #fff;
+    background-color: var(--card);
 }
     
 th, td {
-    border: 1px solid #ddd; 
+    border: 1px solid var(--shadow); 
     padding: 8px; 
     text-align: center;
 }
 
 th {
-    background: #eef2ff;
+    background: var(--hov);
 }

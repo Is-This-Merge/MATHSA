@@ -10,9 +10,14 @@
 <body>
   <div class="container">
     <header>
-        <div>
-          <h1><a href="./index.html" class="logo">수학SA</a></h1>
-          <p class="lead">SASA 수학에 대한 모든 것.</p>
+        <div class="header-wrapper">
+          <div class="left-section">
+            <h1><a href="./index.html" class="logo">수학SA</a></h1>
+            <p class="lead">SASA 수학에 대한 모든 것.</p>
+          </div>
+          <div class="right-section">
+            <div id="darkToggle" class="dark-btn">🌙</div>
+          </div>
         </div>
     </header>
     
@@ -40,7 +45,6 @@
           <li class="useful"><a href="https://class.sasa.hs.kr">달빛매니저</a></li>
           <li class="useful"><a href="https://sasadomi.hs.kr">사사도미</a></li>
           <li class="useful"><a href="https://is-this-merge.github.io/NULLUV/SASA_INFO/index.html">사사인포</a></li>
-        
         </ul>
         <p>글자를 누르면 이동합니다.</p>
       </div>
@@ -51,6 +55,7 @@
     </footer>
   </div>
   
+  <script src="./static/js/darkmode.js"></script>
   <script>
     const toggleBtn = document.getElementById('Toggle');
     const Btns = document.getElementById('Btns');

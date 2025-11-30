@@ -4,13 +4,16 @@
     display: inline-block;
     gap: 10px;
     margin: 15px;
+    background: var(--card);
 }
 .filter select, .filter input{
     padding: 10px;
     border-radius: 9px;
-    border: 2px solid #ccc;
+    border: 2px solid var(--shadow);
     color: var(--primary);
     font-weight: bolder;
+    background: var(--card);
+    margin: 10px;
 }
 
 .content-wrapper {
@@ -21,42 +24,27 @@
     width: 100%;
 }
 .content-wrapper table th, .content-wrapper table td {
-    border: 1px solid #ddd;
+    border: 1px solid var(--shadow);
     padding: 6px;
 }
 
 .course{
-    border: 1px solid #ddd;
+    border: 1px solid var(--shadow);
     border-radius: 6px;
     padding: 10px;
     margin-top: 8px;
     display: flex;
     justify-content: space-between;
     cursor: pointer;
-    background: white;
+    background: var(--card);
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 .course:hover{
-    background: #eef2ff;
-}
-
-.badge{
-    background: #eef2ff;
-    color: #013B84;
-    padding: 3px 8px;
-    border-radius: 999px;
-    font-size: 0.8rem;
-}
-.badge2{
-    background: #eef2ff;
-    color: #23BAEF;
-    padding: 3px 8px;
-    border-radius: 999px;
-    font-size: 0.8rem;
+    background: var(--hov);
 }
 
 .noAnswer{
-    color:gray; 
+    color:var(--text); 
     display:flex; 
     justify-content:center; 
     align-items:center;
@@ -84,7 +72,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: black;
+    color: var(--text);
     text-decoration: none;
 }
 

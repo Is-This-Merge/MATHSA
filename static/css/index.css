@@ -9,7 +9,7 @@ main{
     .tap{
         display: block;
         background: var(--card);
-        border-bottom: 3px solid #ccc;
+        border-bottom: 3px solid var(--shadow);
         padding: 10px 10px;
         margin-top: 15px;
     }
@@ -25,10 +25,10 @@ main{
         padding: 10px 16px;
         border-radius: 12px;
         background: var(--primary);
-        color: #fff;
+        color: var(--card);
         text-decoration: none;
         font-weight: bolder;
-        border-bottom: 3px solid #ccc;
+        border-bottom: 3px solid var(--shadow);
         transition: background-color 0.3s, transform 0.3s;
     }
     .btn:hover{
@@ -39,7 +39,7 @@ main{
         transform: translateY(-2px);
     }
     .btn.show{
-        background: #eef2ff;
+        background: var(--hov);
         border-bottom: 3px solid var(--primary);
         color: var(--primary);
     }
@@ -57,13 +57,13 @@ main{
         margin: 6px 6px 0 0;
         padding: 10px;
         text-decoration: none;
-        color: black;
+        color: var(--text);
         font-weight: bold;
         transition: background-color 0.2s, transform 0.2s;
         border-radius: 9px;
     }
     .tap-btns a:hover{
-        background: #eef2ff;
+        background: var(--hov);
         color: var(--primary);
         transform: translateY(-2px);
     }
@@ -78,7 +78,7 @@ main{
         text-align: center;
         border-radius: 9px;
         font-weight: bolder;
-        border: 2px solid #ccc;
+        border: 2px solid var(--shadow);
     }
 
     table{
@@ -96,7 +96,7 @@ main{
     }
     .useful a{
         text-decoration: none;
-        color: black;
+        color: var(--text);
     }
     .useful a:hover{
         color: var(--primary);

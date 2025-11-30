@@ -66,8 +66,8 @@ const curriculums = [
                 name: '미적분과 해석기하',
                 engname: 'Calculus-and-Analytic-Geometry',
                 semester: [3],
-                credits: 3,
-                frequency: 3,
+                credits: 4,
+                frequency: 4,
                 in: '전문교과',
                 necessary: '필수',
                 AP: 0

@@ -10,11 +10,16 @@
 <body>
   <div class="container">
     <header>
-        <div>
-          <h1><a href="../index.html" class="logo">수학SA</a></h1>
-          <p id="Title" class="lead">과목 설명</p>
+        <div class="header-wrapper">
+            <div class="left-section">
+                <h1><a href="../index.html" class="logo">수학SA</a></h1>
+                <p class="lead">과목 설명</p>
+                <h1 id="SubjectTitle"></h1>
+            </div>
+            <div class="right-section">
+                <div id="darkToggle" class="dark-btn">🌙</div>
+            </div>
         </div>
-        <h1 id="subjectTitle"></h1>
     </header>
 
     <main>
@@ -102,9 +107,16 @@
             <li>SASA 1학년이 학습하기에 적절한 난이도</li>
         </ul>
       </div>
+      <div class="card">
+        <h2>역대 담당 교사</h2>
+        <ul>
+            <li>2025: 외계생명체</li>
+        </ul>
+      </div>
     </main>
   </div>
   
+  <script src="../static/js/darkmode.js"></script>
   <script src="../static/js/curriculum.js"></script>
   <script>
     const params = new URLSearchParams(window.location.search);
