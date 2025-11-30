@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>교육과정</title>
+  <link rel="icon" href="../static/image/icon.png">
+  <link rel="stylesheet" href="../static/css/subject.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+        <div>
+          <h1><a href="../index.html" class="logo">수학SA</a></h1>
+          <p id="Title" class="lead">과목 설명</p>
+        </div>
+        <h1 id="subjectTitle"></h1>
+    </header>
+
+    <main>
+      <div class="card">
+        <h2>개요 및 관련 과목</h2>
+        <ul>
+            <li>SASA인이 보다 높은 수준의 수학을 학습하기 위하여 반드시 이수해야 하는 필수과목</li>
+            <li>수학의 기본 개념과 원리를 이해하며 이후에 수강할 과목 학습의 기반 마련</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>목표</h2>
+        <ul>
+            <li>논리적으로 사고하고 의사소통하는 능력 함양</li>
+            <li>여러 가지 현상과 문제를 합리적이고 창의적으로 해결하는 능력 계발</li>
+            <li>연구자로서 바람직한 인성 기름</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>내용 체계</h2>
+        <table>
+            <tr>
+                <th>영역</th>
+                <th>핵심 개념</th>
+                <th>내용 요소</th>
+            </tr>
+            <tr>
+                <td>집합과 수 체계</td>
+                <td>
+                    <ul>
+                        <li>집합과 논리의 기초</li>
+                        <li>실수와 복소수</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>집합과 명제의 개념</li>
+                        <li>집합과 연산과 연역적 추론</li>
+                        <li>실수의 연산과 순서</li>
+                        <li>복소수</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>수열</td>
+                <td>
+                    <ul>
+                        <li>등차수열과 등비수열</li>
+                        <li>여러 가지 수열</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>수열의 의미와 표현</li>
+                        <li>등차수열과 등비수열</li>
+                        <li>수열의 합</li>
+                        <li>여러 가지 수열</li>
+                        <li>수학적 귀납법</li>
+                        <li>기본 형식의 점화식</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>경우의 수</td>
+                <td>
+                    <ul>
+                        <li>경우의 수</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>합의 법칙과 곱의 법칙</li>
+                        <li>순열</li>
+                        <li>조합</li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+      </div>
+      <div class="card">
+        <h2>교재 및 수준</h2>
+        <ul>
+            <li>SASA 자체 제작 교재 「수학Ⅰ」 사용</li>
+            <li>SASA 1학년이 반드시 알아야할 내용으로 구성</li>
+            <li>SASA 1학년이 학습하기에 적절한 난이도</li>
+        </ul>
+      </div>
+    </main>
+  </div>
+  
+  <script src="../static/js/curriculum.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const curriculumCl = parseInt(params.get('cl'), 10);
+    const curriculum = curriculums.find(c => c.cl.includes(curriculumCl));
+    const subjectID = parseInt(params.get('id'), 10);
+    const subject = curriculum.subjects.find(s => s.id === subjectID);
+
+    document.title = `${subject.name}`
+
+    if(subject){
+        document.getElementById('subjectTitle').innerHTML = `${subject.name}`;
+    }
+  </script>
+</body>
+</html>

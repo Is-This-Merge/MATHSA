@@ -1,1 +1,37 @@
 @import url(./common.css);
+
+main{
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px
+}
+
+.card{
+        background: var(--card);
+        padding: 22px; 
+        border-radius: var(--radius);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+li{
+    margin: 1%;
+    text-align: left;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+}
+    
+th, td {
+    border: 1px solid #ddd; 
+    padding: 8px; 
+    text-align: center;
+}
+
+th {
+    background: #eef2ff;
+}
